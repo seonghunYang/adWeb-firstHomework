@@ -1,0 +1,27 @@
+extends layout
+
+block content
+  p.font-weight-bold.title= "Homework1"
+  .portfolio.d-flex
+    .col-md-3
+      img.img-fluid(src="/images/seonghun.jpg", alt="responsive-img")
+    .col-md-8.pl-3
+      table.table.table-bordered
+        tbody
+          tr
+            th(scope="row") 이름
+            td= "양성훈"
+          tr
+            th(scope="row") 학번
+            td= "60181649"
+      form.mt-5(action="/users/message", method="POST")
+        h2.font-weight-bold= "하고 싶은 말을 남겨주세요."
+        label(for="message") 내용
+        input.form-control(type="text", name="message")
+        button.btn.btn-primary.mt-3(type="submit") 전송
+      if(message)
+        .card.mt-4
+          .card-body
+            h5.card-title 하고 싶은 말
+            p.card-text= message
+
